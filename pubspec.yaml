@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # firebase_auth: ^5.1.4
   firebase_core: ^2.10.0
   flutter_launcher_icons: ^0.13.0
 

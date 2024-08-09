@@ -10,32 +10,114 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // Get
     return MaterialApp(
       title: 'Firebase Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.indigo,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 21,)
+        ),
+        // primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firebase Example'),
+        title: const Text('Firebase Example'),
       ),
-      body: Center(
-        child: Text('Hello, Firebase!'),
-      ),
+      body: SizedBox(
+        width: 500,
+        // height: 800,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           const Text(
+              'Login',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.indigo,
+                fontSize: 25,
+              ),
+            ),
+           const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 40)),
+           const SizedBox(
+              width: 350,
+              child: TextField(
+              autofocus: true,
+              maxLength: 17,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                labelStyle: TextStyle(color: Colors.blueAccent),
+                hintText: 'asd@gmail',
+                hintStyle: TextStyle(color: Colors.grey),
+                filled: true,
+                fillColor: Color.fromARGB(255, 246, 246, 246),
+              ),),
+            ),
+           const Padding(padding: EdgeInsets.fromLTRB(0, 8, 0, 8)),
+           const SizedBox(
+              width: 350,
+              child: TextField(
+                autofocus: true,
+                maxLength: 10,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.blueAccent),
+                  hintText: 'asdqwe123',
+                  hintStyle: TextStyle(color: Colors.grey),
+                  filled: true,
+                  fillColor: Color.fromARGB(255, 246, 246, 246),
+              ),),
+            ),
+           const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
+            // 아이디 저장하기는 나중에 개발
+            SizedBox(
+              width: 120,
+              height: 45,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.indigo,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero)
+                ),
+                onPressed: (){
+                  
+                }, 
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontSize: 15,
+                    ),
+                )
+              ),
+            ),
+           const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 70)),
+
+          ],
+        ),
+      )
     );
   }
 }
